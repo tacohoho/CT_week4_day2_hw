@@ -1,0 +1,21 @@
+INSERT INTO customer(
+	first_name,
+	last_name,
+	address,
+	billing_info
+)VALUES(
+	'Taeho',
+	'Kim',
+	'Vernon Hills, IL',
+	'Vernon Hills, IL'
+);
+
+INSERT INTO ticket(
+	seat_number,
+	theater_number,
+	customer_id
+)VALUES(
+	13,
+	2,
+	1
+);

@@ -1,0 +1,32 @@
+CREATE TABLE customer(
+	customer_id SERIAL PRIMARY KEY,
+	first_name VARCHAR(100),
+	last_name VARCHAR(100),
+	address VARCHAR(150),
+	billing_info VARCHAR(150)
+);
+
+CREATE TABLE ticket(
+	ticket_id SERIAL PRIMARY KEY,
+	seat_number NUMERIC(3,2),
+	theater_number NUMERIC(2,2),
+	customer_id INTEGER NOT NULL,
+	FOREIGN KEY(customer_id) REFERENCES customer(customer_id)
+);
+
+CREATE TABLE concession(
+	concession_id SERIAL PRIMARY KEY,
+	staff_name VARCHAR(100),
+	item_cost NUMERIC(6,2),
+	item_name VARCHAR(100),
+	movie_id INTEGER NOT NULL,
+	FOREIGN KEY(movie_id) REFERENCES movie(movie_id)
+);
+
+CREATE TABLE movie(
+	movie_id SERIAL PRIMARY KEY,
+	movie_name VARCHAR(100),
+	movie_length NUMERIC(6,2),
+	ticket_id INTEGER NOT NULL,
+	FOREIGN KEY(ticket_id) REFERENCES ticket(ticket_id)
+);
